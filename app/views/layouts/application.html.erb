@@ -13,6 +13,9 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
         <%= link_to "#", class: "navbar-brand" do %>
@@ -49,6 +52,7 @@
         </div>
       </div>
     </div>
+
     <%= yield %>
   </body>
 </html>
