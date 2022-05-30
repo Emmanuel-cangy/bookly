@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :description
       t.integer :price_per_day
-      t.references :user_id, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
