@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :set_wishlist, only: %i[new create]
+  before_action :set_wishlist, only: %i[new create destroy]
 
   def new
     @bookmark = Bookmark.new
@@ -17,6 +17,8 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    @bookmark.delete
+    redirect_to wishlist_path(@wishlist)
   end
 
   private

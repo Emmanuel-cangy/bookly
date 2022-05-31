@@ -10,17 +10,24 @@
   <h2>List of Books</h2>  <%= link_to "Add Book", new_book_path, class: "btn btn-success" %>
 </div>
 
-<% @books.each do |book| %>
-  <div class="container card-home">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= book.title %></h5>
-        <%= link_to 'delete', book_path(book),  method: :delete, data: { confirm: "Are you sure?" } %>
+
+<div class="container wishlists-container">
+  <div class="row row-container">
+    <% @books.each do |book| %>
+      <div class="card-container col-xs-12 col-sm-6 col-lg-3 d-flex flex-column">
+        <div class='card-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81')"></div>
+        <div>
+          <h3><%= book.title %></h3>
+          <div class="d-flex justify-content-between">
+            <p>price:<%= book.price_per_day%>$</p>
+            <%= link_to '🗑️', root_path, method: :delete, data: {confirm: "Do you want to delete #{book.title} list?"}, class: 'delete-btn' %>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 
-<%# <br><br><br><br><br><br><br><br><br><br><br><br> %>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>

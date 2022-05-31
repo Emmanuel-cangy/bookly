@@ -1,21 +1,27 @@
-<h1>My Wishlists</h1>
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-        <% @wishlists.each do |wishlist| %>
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><%= wishlist.name %></h5>
-              <p class="card-text"><%= wishlist.description %></p>
-            </div>
-            <%= link_to "See List", wishlist_path(wishlist) %>
-            <%= link_to "Delete", wishlist_path(wishlist), method: :delete, data: {confirm: "Do you want to delete #{wishlist.name} list?"} %>
-          </div>
-        <% end %>
-      </div>
+<div class="container container-name h2-text-container d-flex justify-content-between align-items-end">
+  <div>
+    <h2>My Wishlists<h2>
+    <%= link_to "Back", root_path, class:'btn btn-primary' %>
   </div>
-
-  <%= link_to "Create a Wishlist", new_wishlist_path %>
-  <%= link_to "Back", books_path %>
+  <%= link_to 'create', new_wishlist_path, class:"btn btn-success" %>
 </div>
+
+
+
+
+
+<div class="container wishlists-container">
+  <div class="row">
+    <% @wishlists.each do |wishlist| %>
+      <div class="col-xs-12 col-sm-6 col-lg-3 d-flex justify-content-center">
+        <div class='card-wishlist' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81')">
+          <%# <p class="card-text"><%= wishlist.description %>
+          <%= link_to wishlist.name, wishlist_path(wishlist), class:"card-name" %>
+          <%= link_to "🗑️", wishlist_path(wishlist), method: :delete, data: {confirm: "Do you want to delete #{wishlist.name} list?"}, class:'delete-btn-wishlist' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%# <%= cl_image_path list.photo.key %>
