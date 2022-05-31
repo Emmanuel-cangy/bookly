@@ -1,2 +1,26 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Bookly brings <strong>love of books</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and get a book with someone near your location.</p>
+    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+  </div>
+</div>
+
+<div class="container h2-text-container d-flex justify-content-between align-items-center">
+  <h2>List of Books</h2>  <%= link_to "Add Book", new_book_path, class: "btn btn-success" %>
+</div>
+
+<% @books.each do |book| %>
+  <div class="container card-home">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= book.title %></h5>
+        <%= link_to 'delete', book_path(book),  method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<%# <br><br><br><br><br><br><br><br><br><br><br><br> %>
