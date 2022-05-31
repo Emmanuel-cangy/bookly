@@ -1,2 +1,4 @@
-<h1>Wishlists#show</h1>
-<p>Find me in app/views/wishlists/show.html.erb</p>
+<h1><%= @wishlist.name %></h1>
+
+<%= link_to "Add a Book", new_wishlist_bookmark_path(@wishlist) %>
+<%= link_to "Back", wishlists_path %>
