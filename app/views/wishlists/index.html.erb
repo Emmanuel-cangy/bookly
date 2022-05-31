@@ -1,2 +1,21 @@
-<h1>Wishlists#index</h1>
-<p>Find me in app/views/wishlists/index.html.erb</p>
+<h1>My Wishlists</h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <% @wishlists.each do |wishlist| %>
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= wishlist.name %></h5>
+              <p class="card-text"><%= wishlist.description %></p>
+            </div>
+            <%= link_to "See List", wishlist_path(wishlist) %>
+            <%= link_to "Delete", wishlist_path(wishlist), method: :delete, data: {confirm: "Do you want to delete #{wishlist.name} list?"} %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <%= link_to "Create a Wishlist", new_wishlist_path %>
+  <%= link_to "Back", books_path %>
+</div>

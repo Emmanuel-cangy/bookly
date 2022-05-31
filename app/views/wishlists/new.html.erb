@@ -1,2 +1,9 @@
-<h1>Wishlists#new</h1>
-<p>Find me in app/views/wishlists/new.html.erb</p>
+<h1>New Wishlist</h1>
+
+<%= simple_form_for @wishlist do |f|  %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", wishlists_path %>
