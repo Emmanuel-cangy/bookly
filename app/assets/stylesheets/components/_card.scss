@@ -1,3 +1,43 @@
 .card-home{
   margin-top: 16px;
 }
+
+.card-image{
+  width: 10rem;
+  height: 15rem;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  box-shadow: 0px 0px 5px 6px rgb(199, 197, 197);
+}
+
+.card-wishlist{
+  width: 20rem;
+  height: 10rem;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  box-shadow: 0px 0px 5px 6px rgb(199, 197, 197);
+  position: relative;
+}
+
+.card-name{
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  transition: all 0.4s linear;
+
+  &:hover {
+    font-size: 3rem;
+  }
+}
+
+.card-size{
+  max-width: 200px;
+}

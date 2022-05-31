@@ -6,6 +6,7 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    @books = @wishlist.books
   end
 
   def new
@@ -23,7 +24,8 @@ class WishlistsController < ApplicationController
   end
 
   def destroy
-    @wishlist.delete
+    @wishlist.destroy
+    redirect_to wishlists_path
   end
 
   private

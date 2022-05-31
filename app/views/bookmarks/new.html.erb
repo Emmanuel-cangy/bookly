@@ -1,8 +1,10 @@
-<h1>Add a Book to "<%= @wishlist.name %>"" List</h1>
+<div class="container container-name">
+  <h1>Add a Book to "<%= @wishlist.name %>"" List</h1>
 
-<%= simple_form_for [@wishlist, @bookmark] do |f| %>
-  <%= f.association :book %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for [@wishlist, @bookmark] do |f| %>
+    <%= f.association :book %>
+    <%= f.submit %>
+  <% end %>
 
-<%= link_to "Back", wishlist_path(@wishlist) %>
+  <%= link_to "Back", wishlist_path(@wishlist) %>
+</div>

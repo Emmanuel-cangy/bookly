@@ -3,3 +3,32 @@
   padding-bottom: 8px;
   border-bottom: 1px solid darkgray;
 }
+
+.wishlists-container{
+  margin-top: 36px;
+}
+
+.card-container{
+  margin: 0px 5px 20px;
+  width: 216px;
+  border: 1px solid black;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-name{
+  margin-top: 80px;
+}
+
+.wishlist-show-container{
+  margin-top: 80px;
+}
+
+.row-container{
+  margin-bottom: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+}
