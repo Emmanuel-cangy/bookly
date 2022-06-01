@@ -27,10 +27,10 @@
       <%= booking.book.title %>
       <p>starting rent date: <%= booking.rent_date %></p>
       <p>Return Date: <%= booking.return_date %></p>
-      <p>Price: <%= rent_price(booking) %></p>
+      <p>Price: <%= rent_price(booking) %>$</p>
       <%= simple_form_for booking do |f| %>
         <%= f.input :confirmation, collection: @status %>
-        <%= f.submit 'Create', class:'btn btn-success' %>
+        <%= f.submit 'Submit', class:'btn btn-success' %>
       <% end %>
     </div>
   <% end %>
