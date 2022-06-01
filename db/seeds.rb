@@ -18,6 +18,7 @@ User.create(email: Faker::Internet.email, password: '123456')
   book = Book.create(title: Faker::Book.title,
               price_per_day: Faker::Commerce.price,
               user_id: User.first.id,
+              address: "Mauritius",
               description: "The unexciting life of a boy changes in an instant as a neighbor enters his life.
 
               The neighbor claims the boy is actually stuck within a dream world, a world from which there is only one way out and this 'dream person' will show the way. Unsure about everything, including this neighbor, the boy hesitantly agrees to the proposal, it all feels very exciting, as if a big adventure was about to begin.

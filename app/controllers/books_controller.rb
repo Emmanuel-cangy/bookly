@@ -6,6 +6,10 @@ class BooksController < ApplicationController
   end
 
   def show
+    @marker = [{
+      lat: @book.latitude,
+      lng: @book.longitude
+    }]
   end
 
   def new
@@ -32,6 +36,8 @@ class BooksController < ApplicationController
     @book.delete
     redirect_to root_path
   end
+
+
 
   private
 
