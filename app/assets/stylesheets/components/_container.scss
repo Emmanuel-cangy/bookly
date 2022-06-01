@@ -32,3 +32,12 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
 }
+
+.map-container{
+  width: 1000px;
+  height: 500px;
+}
+// to remove everything below
+.container-card-1{
+  margin-bottom: 50px;
+}
