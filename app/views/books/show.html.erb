@@ -1,5 +1,5 @@
 <div class="mt-5">
-  <div class="banner d-flex justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="banner d-flex justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @book.photo.key || "" %>');">
     <h1><%= @book.title %></h1>
   </div>
   <div class="container">

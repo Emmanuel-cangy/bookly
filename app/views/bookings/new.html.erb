@@ -1,19 +1,20 @@
-<div class="container d-flex justify-content-center margin-top">
+<div class="container d-flex justify-content-center">
   <div class= "booking-card-size mt-5">
-
     <div class="card form-card">
-      <h1>Booking</h1>
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Pick a date</h5>
-          <%= simple_form_for [@book, @booking] do |f|%>
-            <%= f.input :rent_date, as: :date %>
-            <%= f.input :return_date, as: :date %>
+      <div class="d-flex align-items-center flex-column" >
+        <h1>Booking</h1>
+        <img class="card-img-top card-image" src='<%= cl_image_path @book.photo.key || "" %>' alt="Card image cap">
       </div>
       <div class="card-body">
-            <%= f.submit "Book your Book", class: "btn btn-primary" %>
-          <% end %>
-        <%= link_to "Back", book_path(@book), class: "btn btn-danger" %>
+        <h5 class="card-title">Pick a date</h5>
+        <%= simple_form_for [@book, @booking] do |f|%>
+          <%= f.input :rent_date, as: :date %>
+          <%= f.input :return_date, as: :date %>
+          <div class="card-body d-flex justify-content-between">
+            <%= f.submit "Book your Book", class: "btn btn-success" %>
+            <%= link_to "Back", book_path(@book), class: "btn btn-primary" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

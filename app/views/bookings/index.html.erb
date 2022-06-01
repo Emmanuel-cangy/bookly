@@ -1,19 +1,37 @@
-<h1>Bookings#index</h1>
-<% @bookings.each do |booking|%>
-  <%= booking.book.title %>
-  <p>starting rent date: <%= booking.rent_date %></p>
-  <p>Return Date: <%= booking.return_date %></p>
-  <p>Price: <%= rent_price(booking) %></p>
-  <p>Status: <%= booking.confirmation %></p>
-<% end %>
-<h1>Owner bookings</h1>
-<% @owner_bookings.each do |booking|%>
-  <%= booking.book.title %>
-  <p>starting rent date: <%= booking.rent_date %></p>
-  <p>Return Date: <%= booking.return_date %></p>
-  <p>Price: <%= rent_price(booking) %></p>
-  <%= simple_form_for booking do |f| %>
-    <%= f.input :confirmation, collection: @status %>
-    <%= f.submit %>
+<div class="container container-name h2-text-container d-flex justify-content-between align-items-end">
+    <h2>My Bookings<h2>
+    <%= link_to "Back", root_path, class:'btn btn-primary' %>
+</div>
+
+<div class="container form-card-booking">
+  <div class="d-flex justify-content-center">
+    <h2>Bookings cart</h2>
+  </div>
+  <% @bookings.each do |booking|%>
+  <div class="form-card-booking booking-card">
+    <%= booking.book.title %>
+    <p>starting rent date: <%= booking.rent_date %></p>
+    <p>Return Date: <%= booking.return_date %></p>
+    <p>Price: <%= rent_price(booking) %></p>
+    <p>Status: <%= booking.confirmation %></p>
+  </div>
   <% end %>
-<% end %>
+</div>
+
+<div class="container form-card owner-booking-card">
+  <div class="d-flex justify-content-center">
+    <h2>Owner bookings</h2>
+  </div>
+  <% @owner_bookings.each do |booking|%>
+    <div class="form-card-booking booking-card">
+      <%= booking.book.title %>
+      <p>starting rent date: <%= booking.rent_date %></p>
+      <p>Return Date: <%= booking.return_date %></p>
+      <p>Price: <%= rent_price(booking) %></p>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :confirmation, collection: @status %>
+        <%= f.submit 'Create', class:'btn btn-success' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

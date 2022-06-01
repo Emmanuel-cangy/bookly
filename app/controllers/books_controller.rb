@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.delete
+    @book.destroy
     redirect_to root_path
   end
 
