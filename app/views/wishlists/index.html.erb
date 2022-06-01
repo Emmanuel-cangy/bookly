@@ -14,7 +14,8 @@
   <div class="row">
     <% @wishlists.each do |wishlist| %>
       <div class="col-xs-12 col-sm-6 col-lg-3 d-flex justify-content-center">
-        <div class='card-wishlist' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81')">
+
+        <div class='card-wishlist' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.photo.key || ""%>')">
           <%# <p class="card-text"><%= wishlist.description %>
           <%= link_to wishlist.name, wishlist_path(wishlist), class:"card-name" %>
           <%= link_to "🗑️", wishlist_path(wishlist), method: :delete, data: {confirm: "Do you want to delete #{wishlist.name} list?"}, class:'delete-btn-wishlist' %>

@@ -3,7 +3,8 @@
     <%= f.input :title, placeholder: 'title' %>
     <%= f.input :description, placeholder: 'description' %>
     <%= f.input :price_per_day, placeholder: 'Price to rent the book per day', as: :numeric %>
-    <div class="d-flex justify-content-between ">
+    <%= f.input :photo, as: :file %>
+    <div class="d-flex justify-content-between">
       <%= f.submit 'Create', class: "btn btn-default btn-success"%>
       <%= link_to 'back', root_path, class:"btn btn-primary"%>
     </div>
