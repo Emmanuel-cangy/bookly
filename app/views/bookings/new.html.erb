@@ -1,8 +1,20 @@
-<div class= "container">
-    <h1>Booking</h1>
-    <%= simple_form_for [@book, @booking] do |f|%>
-      <%= f.input :rent_date, as: :date %>
-      <%= f.input :return_date, as: :date %>
-      <%= f.submit "Book your Book", class: "btn btn-primary"%>
-    <% end %>
+<div class="container d-flex justify-content-center margin-top">
+  <div class= "booking-card-size mt-5">
+
+    <div class="card form-card">
+      <h1>Booking</h1>
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Pick a date</h5>
+          <%= simple_form_for [@book, @booking] do |f|%>
+            <%= f.input :rent_date, as: :date %>
+            <%= f.input :return_date, as: :date %>
+      </div>
+      <div class="card-body">
+            <%= f.submit "Book your Book", class: "btn btn-primary" %>
+          <% end %>
+        <%= link_to "Back", book_path(@book), class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
 </div>
