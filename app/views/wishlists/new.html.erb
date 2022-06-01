@@ -3,6 +3,7 @@
   <%= simple_form_for @wishlist do |f|  %>
     <%= f.input :name,  placeholder: 'name' %>
     <%= f.input :description,  placeholder: 'description' %>
+    <%= f.input :photo, as: :file %>
     <div class="d-flex justify-content-between ">
       <%= f.submit 'Create', class: "btn btn-default btn-success"%>
       <%= link_to "Back", wishlists_path, class:"btn btn-primary" %>

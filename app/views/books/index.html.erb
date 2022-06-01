@@ -15,7 +15,7 @@
   <div class="row row-container">
     <% @books.each do |book| %>
       <div class="card-container col-xs-12 col-sm-6 col-lg-3 d-flex flex-column">
-        <div class='card-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81')"></div>
+        <div class='card-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path book.photo.key || "" %>')"></div>
         <div>
           <h3><%= book.title %></h3>
           <div class="d-flex justify-content-between">
