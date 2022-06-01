@@ -18,6 +18,7 @@
         <div class='card-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81')"></div>
         <div>
           <h3><%= book.title %></h3>
+          <p><%= link_to "More Details", book_path(book) %></p>
           <div class="d-flex justify-content-between">
             <p>price:<%= book.price_per_day%>$</p>
             <%= link_to '🗑️', root_path, method: :delete, data: {confirm: "Do you want to delete #{book.title} list?"}, class: 'delete-btn' %>

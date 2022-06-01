@@ -1,2 +1,43 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="mt-5">
+  <div class="banner d-flex justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <h1><%= @book.title %></h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="container mt-5 description">
+          <h3 class="border-bottom pb-2">Description:</h3>
+          <div class="description-body">
+            <i class="fas fa-quote-left"></i><p> <%= @book.description %> </p><i class="fas fa-quote-right d-flex justify-content-end"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card-body bg-white border card-sticky">
+          <%= link_to "Book Now", new_book_booking_path(@book), class: "btn btn-primary w-100" %>
+          <% if @book.bookings.size >= 1 %>
+            <% @book.bookings.each do |booking| %>
+              <div class="d-flex justify-content-between pt-3 border-bottom">
+                <p>Unavailable from: <%= booking.rent_date %> to <%= booking.return_date %></p>
+              </div>
+            <% end %>
+          <% else %>
+              <div class="d-flex justify-content-between pt-3 border-bottom">
+                <p>Available</p>
+              </div>
+          <% end %>
+          <div class="d-flex justify-content-between pt-3">
+            <p><strong>Price per Day</strong></p>
+            <p><strong><%= @book.price_per_day %></strong> <i class="fas fa-dollar-sign"></i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <%= link_to "Back", books_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br>
