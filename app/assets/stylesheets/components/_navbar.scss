@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-
+  height: 50px;;
 }
 
 .avatar-nav{
@@ -17,6 +17,7 @@
 .navbar-lewagon .navbar-brand img {
   height: 35px;
   width: 70px;
+  object-fit: cover;
 }
 
 .sticky {
@@ -24,4 +25,20 @@
   top: 0;
   width: 100%;
   z-index: 5;
+}
+
+.nav-border{
+  height: 35px;
+  padding: 0px;
+  margin: 0px 5px;
+  transition: all 500ms;
+
+  &:hover{
+    font-size: 1.2rem;
+    box-shadow: 0px 2px 0px 0px gray;
+  }
+}
+
+.nav-border-icon{
+  margin: 0px 5px;
 }

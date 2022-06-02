@@ -1,8 +1,13 @@
-<div class="container container-name h2-text-container d-flex justify-content-between align-items-end">
-  <div>
-    <h2>My Wishlists<h2>
-    <%= link_to "Back", root_path, class:'btn btn-primary' %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/deqc25xt2/image/upload/v1654172974/books-banner_l5g17i.jpg);">
+  <div class="container">
+    <h1>My Bookly Wishlists</h1>
+    <p>Add your books in a dedicated Library</p>
+    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
   </div>
+</div>
+
+<div class="container  h2-text-container d-flex justify-content-between align-items-end">
+  <%= link_to "Back", root_path, class:'btn btn-primary' %>
   <%= link_to 'create', new_wishlist_path, class:"btn btn-success" %>
 </div>
 
