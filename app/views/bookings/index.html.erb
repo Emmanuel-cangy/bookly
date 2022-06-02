@@ -4,17 +4,20 @@
 </div>
 
 <div class="container form-card-booking">
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center justify-content-between align-item-end">
     <h2>Bookings cart</h2>
   </div>
   <% @bookings.each do |booking|%>
-  <div class="form-card-booking booking-card">
-    <%= booking.book.title %>
-    <p>starting rent date: <%= booking.rent_date %></p>
-    <p>Return Date: <%= booking.return_date %></p>
-    <p>Price: <%= rent_price(booking) %></p>
-    <p>Status: <%= booking.confirmation %></p>
-  </div>
+    <div class="form-card-booking booking-card d-flex">
+      <div class='card-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path booking.book.photo.key || "" %>')"></div>
+      <div class="">
+        <p><%= booking.book.title %></p>
+        <p>Starting rent date: <%= booking.rent_date %></p>
+        <p>Return Date: <%= booking.return_date %></p>
+        <p>Price: <%= rent_price(booking) %></p>
+        <p>Status: <%= booking.confirmation %></p>
+      </div>
+    </div>
   <% end %>
 </div>
 
