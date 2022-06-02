@@ -6,3 +6,12 @@
     color: black;
   }
 }
+
+.name-text{
+  font-size: 60px;
+  transition: linear 0.5s;
+
+  &:hover{
+    color: rgb(227, 35, 35);
+  }
+}
