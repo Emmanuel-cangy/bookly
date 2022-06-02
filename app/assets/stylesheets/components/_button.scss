@@ -9,3 +9,18 @@
   bottom: 16px;
   text-decoration: none;
 }
+
+.add-button{
+  transition: linear 0.15s;
+  &:hover{
+    font-size: 1.1rem;
+  }
+}
+
+.btn-container{
+  width: 132px;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
