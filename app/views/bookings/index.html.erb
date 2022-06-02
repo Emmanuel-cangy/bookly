@@ -1,5 +1,12 @@
-<div class="container container-name h2-text-container d-flex justify-content-between align-items-end">
-    <h2>My Bookings<h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/deqc25xt2/image/upload/v1654175971/banner-bookings_e9hq6a.webp);">
+  <div class="container">
+    <h1>My Bookly Bookings</h1>
+    <p>See your commands and your bookings!</p>
+    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
+  </div>
+</div>
+
+<div class="container  h2-text-container d-flex justify-content-between align-items-end">
     <%= link_to "Back", root_path, class:'btn btn-primary' %>
 </div>
 
@@ -8,9 +15,9 @@
     <h2>Bookings cart</h2>
   </div>
   <% @bookings.each do |booking|%>
-    <div class="form-card-booking booking-card d-flex">
+    <div class="booking-card d-flex">
       <div class='card-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path booking.book.photo.key || "" %>')"></div>
-      <div class="">
+      <div class="booking-text-container">
         <p><%= booking.book.title %></p>
         <p>Starting rent date: <%= booking.rent_date %></p>
         <p>Return Date: <%= booking.return_date %></p>
@@ -26,7 +33,7 @@
     <h2>Owner bookings</h2>
   </div>
   <% @owner_bookings.each do |booking|%>
-    <div class="form-card-booking booking-card">
+    <div class="booking-card">
       <%= booking.book.title %>
       <p>starting rent date: <%= booking.rent_date %></p>
       <p>Return Date: <%= booking.return_date %></p>
