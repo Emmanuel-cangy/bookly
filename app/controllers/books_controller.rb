@@ -44,7 +44,9 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
-
+  def my_books
+    @books = Book.where(user: current_user)
+  end
 
   private
 
