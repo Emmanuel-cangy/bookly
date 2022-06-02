@@ -10,7 +10,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <%# <% if user_signed_in? %>
+        <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
@@ -20,20 +20,30 @@
           <li class="nav-item">
             <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "My Books", books_my_books_path, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://img.freepik.com/free-vector/farmer-using-agricultural-technology_53876-120543.jpg?t=st=1654153474~exp=1654154074~hmac=ced592d39130d7e273f86a37b320cf0ac37344453db8d68e976501703cfaa8c0&w=740", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle avatar-nav", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/deqc25xt2/image/upload/v1653735226/development/wfpxgqqv8uyjgmxkrcwhvyejjacx.jpg", class: "avatar dropdown-toggle avatar-nav", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile",  edit_user_registration_path , class: "dropdown-item" %>
+
               <%= link_to "Sign up",  new_user_registration_path , class: "dropdown-item" %>
+
               <%= link_to "Log in", new_user_session_path, class: "dropdown-item" %>
               <%# <%= link_to "",  destroy_user_session_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
-        <%# <% else %>
-          <%# <li class="nav-item"> %>
-            <%# <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%# </li> %>
-        <%# <% end %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
