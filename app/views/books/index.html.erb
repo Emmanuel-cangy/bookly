@@ -2,7 +2,6 @@
   <div class="container">
     <h1><span class="name-text">Bookly</span> <strong>brings love of books</strong> to <strong>creative people</strong>!</h1>
     <p>Change your life and get a book with someone near your location.</p>
-    <%# <a class="btn btn-flat" href="#">Apply now</a> %>
   </div>
 </div>
 
@@ -18,7 +17,9 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
-  <%= link_to "Add Book", new_book_path, class: "btn btn-success" %>
+  <% if current_user %>
+    <a href="/books/new" class="text-decoration-none"><i class="fas fa-plus-circle "></i>  Add a Book</a>
+  <% end %>
 </div>
 
 <div class="container wishlists-container">

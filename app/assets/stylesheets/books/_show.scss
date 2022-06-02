@@ -16,3 +16,10 @@
   top: 60%;
   z-index: 5;
 }
+
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+}
