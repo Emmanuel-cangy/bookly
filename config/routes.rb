@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'books#index'
+  get 'books/my_books', to: 'books#my_books'
 
   resources :books do
     resources :bookings, only: %i[new create]
