@@ -1,12 +1,17 @@
+
 <div class="container form-card">
+  <h1 class="p-2">Upload a Book Offer</h1>
   <%= simple_form_for @book do |f| %>
     <%= f.input :title, placeholder: 'title' %>
     <%= f.input :description, placeholder: 'description' %>
     <%= f.input :price_per_day, placeholder: 'Price to rent the book per day', as: :numeric %>
     <%= f.input :photo, as: :file %>
+    <%= f.input :address,
+              input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
     <div class="d-flex justify-content-between">
       <%= f.submit 'Create', class: "btn btn-default btn-success"%>
-      <%= link_to 'back', root_path, class:"btn btn-primary"%>
+      <%= link_to 'Back', root_path, class:"btn btn-primary"%>
     </div>
   <% end %>
 </div>
