@@ -1,19 +1,22 @@
-<div class="mt-5"></div>
-<div class="banner d-flex justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @book.photo.key || "" %>');">
+<div class="banner d-flex justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @book.photo.key || "" %>'); background-size: contain;">
   <h1><%= @book.title %></h1>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-8">
       <div class="container mt-5 description">
-        <h3 class="border-bottom pb-2">Description:</h3>
+        <div class="h2-text-container">
+          <h3 class="pb-2">Description:</h3>
+          <%= link_to "Back", root_path, class: "btn btn-primary" %>
+        </div>
         <div class="description-body">
           <i class="fas fa-quote-left"></i><p> <%= @book.description %> </p><i class="fas fa-quote-right d-flex justify-content-end"></i>
         </div>
       </div>
     </div>
     <div class="col-4">
-      <div class="card-body bg-white border card-sticky">
+      <div class="card-body bg-white border card-sticky container-book-show">
         <%= link_to "Book Now", new_book_booking_path(@book), class: "btn btn-primary w-100" %>
         <% if @book.bookings.size >= 1 %>
           <% @book.bookings.each do |booking| %>
@@ -33,17 +36,12 @@
       </div>
     </div>
   </div>
-  <div class="col-10">
-    <div class="map-container d-flex justify-content-center">
-      <div class="mt-5"
-        style="width: 800%; height: 400px;"
-        data-controller="mapbox"
-        data-mapbox-markers-value="<%= @marker.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
+  <div class="mx-4"
+    style="width: 800px; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @marker.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <%= link_to "Back", root_path, class: "btn btn-primary mt-5" %>
 </div>
 
 
