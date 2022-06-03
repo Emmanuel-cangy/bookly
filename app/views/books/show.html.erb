@@ -15,26 +15,49 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
-      <div class="card-body bg-white border card-sticky container-book-show">
-        <%= link_to "Book Now", new_book_booking_path(@book), class: "btn btn-primary w-100" %>
-        <% if @book.bookings.size >= 1 %>
-          <% @book.bookings.each do |booking| %>
-            <div class="d-flex justify-content-between pt-3 border-bottom">
-              <p>Unavailable from: <%= booking.rent_date %> to <%= booking.return_date %></p>
-            </div>
+    <% if user_signed_in? %>
+      <div class="col-4">
+        <div class="card-body bg-white border card-sticky container-book-show">
+          <%= link_to "Book Now", new_book_booking_path(@book), class: "btn btn-primary w-100" %>
+          <% if @book.bookings.size >= 1 %>
+            <% @book.bookings.each do |booking| %>
+              <div class="d-flex justify-content-between pt-3 border-bottom">
+                <p>Unavailable from: <%= booking.rent_date %> to <%= booking.return_date %></p>
+              </div>
+            <% end %>
+          <% else %>
+              <div class="d-flex justify-content-between pt-3 border-bottom">
+                <p>Available</p>
+              </div>
           <% end %>
-        <% else %>
-            <div class="d-flex justify-content-between pt-3 border-bottom">
-              <p>Available</p>
-            </div>
-        <% end %>
-        <div class="d-flex justify-content-between pt-3">
-          <p><strong>Price per Day</strong></p>
-          <p><strong><%= @book.price_per_day %></strong> <i class="fas fa-dollar-sign"></i></p>
+          <div class="d-flex justify-content-between pt-3">
+            <p><strong>Price per Day</strong></p>
+            <p><strong><%= @book.price_per_day %></strong> <i class="fas fa-dollar-sign"></i></p>
+          </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <div class="col-4">
+        <div class="card-body bg-white border card-sticky container-book-show">
+          <%= link_to "Book Now", user_session_path, class: "btn btn-primary w-100" %>
+          <% if @book.bookings.size >= 1 %>
+            <% @book.bookings.each do |booking| %>
+              <div class="d-flex justify-content-between pt-3 border-bottom">
+                <p>Unavailable from: <%= booking.rent_date %> to <%= booking.return_date %></p>
+              </div>
+            <% end %>
+          <% else %>
+              <div class="d-flex justify-content-between pt-3 border-bottom">
+                <p>Available</p>
+              </div>
+          <% end %>
+          <div class="d-flex justify-content-between pt-3">
+            <p><strong>Price per Day</strong></p>
+            <p><strong><%= @book.price_per_day %></strong> <i class="fas fa-dollar-sign"></i></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="mx-4"
     style="width: 800px; height: 600px;"
