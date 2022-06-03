@@ -16,7 +16,8 @@ class BooksController < ApplicationController
     @marker = [{
       lat: @book.latitude,
       lng: @book.longitude,
-      info_window: render_to_string(partial: "info_window", locals: { book: @book })
+      info_window: render_to_string(partial: "info_window", locals: { book: @book }),
+      image_url: helpers.asset_url("book_marker")
     }]
   end
 
