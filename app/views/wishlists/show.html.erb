@@ -3,7 +3,6 @@
     <h2><%= @wishlist.name %></h2>
     <%= link_to "Back", wishlists_path, class:'btn btn-primary' %>
   </div>
-  <%= link_to "Add a Book", new_wishlist_bookmark_path(@wishlist), class:'btn btn-success' %>
 </div>
 
 <div class="container wishlists-container">
@@ -16,10 +15,23 @@
           <p><%= link_to "More Details", book_path(book), class:'more-details-text' %></p>
           <div class="d-flex justify-content-between">
             <p>price:<%= book.price_per_day%>$</p>
-            <%= link_to '🗑️', book_path(book), method: :delete, data: {confirm: "Do you want to delete #{book.title} list?"}, class: 'delete-btn' %>
+            <% @bookmark_id = find_bookmark(book) %>
+            <%= link_to '🗑️', wishlist_bookmark_path(id: @bookmark_id.id, wishlist_id: @wishlist.id), method: :delete, data: {confirm: "Do you want to delete #{book.title} list?"}, class: 'delete-btn' %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+</div>
+
+
+<div class="container form-card mb-5">
+  <h1>Add a Book to "<%= @wishlist.name %>"" List</h1>
+
+  <%= simple_form_for([ @wishlist, @bookmark ], remote: true)  do |f| %>
+    <%= f.association :book %>
+    <div class="container d-flex justify-content-between">
+      <%= f.submit 'Create', class:'btn btn-success' %>
+    </div>
+  <% end %>
 </div>

@@ -1,0 +1,17 @@
+<div class="container wishlists-container">
+  <div class="row row-container">
+    <% @books.each do |book| %>
+      <div class="card-container col-xs-12 col-sm-6 col-lg-3 d-flex flex-column">
+        <div class='card-image' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path book.photo.key || "" %>')"></div>
+        <div>
+          <h3><%= book.title %></h3>
+          <p><%= link_to "More Details", book_path(book), class:'more-details-text' %></p>
+          <div class="d-flex justify-content-between">
+            <p>price:<%= book.price_per_day%>$</p>
+            <%= link_to '🗑️', bookmark_path(book.bookmark), method: :delete, data: {confirm: "Do you want to delete #{book.title} list?"}, class: 'delete-btn' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 class WishlistsController < ApplicationController
-  before_action :set_wishlist, only: %i[show destroy]
+  before_action :set_wishlist, only: %i[show destroy find_bookmark]
+  helper_method :find_bookmark
 
   def index
     @wishlists = Wishlist.where(user: current_user)
@@ -7,6 +8,7 @@ class WishlistsController < ApplicationController
 
   def show
     @books = @wishlist.books
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -36,5 +38,12 @@ class WishlistsController < ApplicationController
 
   def params_wishlist
     params.require(:wishlist).permit(:name, :description, :photo)
+  end
+
+  def find_bookmark(book)
+    book.bookmarks.each do |bookmark|
+      @bookmark = bookmark if bookmark.wishlist_id == @wishlist.id
+    end
+    @bookmark
   end
 end
