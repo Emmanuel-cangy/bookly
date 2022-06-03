@@ -12,27 +12,27 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <div class="nav-container-search nav-border">
-            <li class="nav-item active">
+            <li class="nav-item nav-dropdown active">
               <%= link_to "Home", root_path, class: "nav-link" %>
             </li>
           </div>
           <div class="nav-container-search nav-border">
-            <li class="nav-item">
+            <li class="nav-item nav-dropdown">
               <%= link_to "My wishlist", wishlists_path, class: "nav-link" %>
             </li>
           </div>
           <div class="nav-container-search nav-border">
-            <li class="nav-item">
+            <li class="nav-item nav-dropdown">
               <%= link_to "My Bookings", bookings_path, class: "nav-link" %>
             </li>
           </div>
           <div class="nav-container-search nav-border">
-            <li class="nav-item">
+            <li class="nav-item nav-dropdown">
               <%= link_to "My Books", books_my_books_path, class: "nav-link" %>
             </li>
           </div>
           <div class="nav-border-icon">
-            <li class="nav-item dropdown">
+            <li class="nav-item nav-dropdown dropdown">
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle avatar-nav", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
