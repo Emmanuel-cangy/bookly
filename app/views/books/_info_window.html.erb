@@ -1,2 +1,9 @@
-<h2><%= book.title %></h2>
-<p><%= book.address %></p>
+
+<div class="row">
+<div class="container d-flex">
+  <div>
+    <div class='card-infow-window mr-2'>
+      <%= cl_image_tag(book.photo.key || "", :width => 120, :height => 200)%>
+    </div>
+  </div>
+</div>
